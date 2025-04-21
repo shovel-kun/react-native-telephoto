@@ -1,11 +1,27 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Telephoto } from 'react-native-telephoto';
+import {View, StyleSheet} from 'react-native';
+import {Telephoto} from 'react-native-telephoto';
 
 function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
-        <Telephoto isRed={true} style={styles.view} />
+      <Telephoto
+        source={'https://images.unsplash.com/photo-1506744038136-46273834b3fb'}
+        contentScale="fit"
+        style={styles.view}
+        minZoomFactor={1}
+        maxZoomFactor={2}
+        onPress={{
+          f: offset => {
+            console.log('onPress', offset);
+          },
+        }}
+        onLongPress={{
+          f: offset => {
+            console.log('onLongPress', offset);
+          },
+        }}
+      />
     </View>
   );
 }
@@ -17,8 +33,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   view: {
-    width: 200,
-    height: 200
-  }});
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'black',
+  },
+});
 
 export default App;

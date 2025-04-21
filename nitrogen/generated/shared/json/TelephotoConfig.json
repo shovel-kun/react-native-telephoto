@@ -1,0 +1,17 @@
+{
+  "uiViewClassName": "Telephoto",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "source": true,
+    "contentDescription": true,
+    "alignment": true,
+    "contentScale": true,
+    "minZoomFactor": true,
+    "maxZoomFactor": true,
+    "onPress": true,
+    "onLongPress": true,
+    "hybridRef": true
+  }
+}
