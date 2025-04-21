@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.2](https://github.com/shovel-kun/react-native-telephoto/compare/v0.2.1...v0.2.2) (2025-04-21)
+
 ## [0.2.1](https://github.com/shovel-kun/react-native-telephoto/compare/v0.2.0...v0.2.1) (2025-04-21)
 
 ### 🐛 Bug Fixes
