@@ -39,27 +39,26 @@
   "workspaces": [
     "example"
   ],
-  "repository": "https://github.com/ebisuzawakurumi/react-native-telephoto.git",
+  "repository": "https://github.com/shovel-kun/react-native-telephoto.git",
   "author": "Ebisuzawa Kurumi",
   "license": "MIT",
-  "bugs": "https://github.com/ebisuzawakurumi/react-native-telephoto/issues",
-  "homepage": "https://github.com/ebisuzawakurumi/react-native-telephoto#readme",
+  "bugs": "https://github.com/shovel-kun/react-native-telephoto/issues",
+  "homepage": "https://github.com/shovel-kun/react-native-telephoto#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "provenance": true
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
-    "@release-it/bumper": "^7.0.1",
-    "@release-it/conventional-changelog": "^10.0.0",
-    "@types/jest": "^29.5.12",
+    "@release-it/bumper": "^7.0.5",
+    "@release-it/conventional-changelog": "^10.0.1",
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.0.10",
     "nitro-codegen": "0.25.1",
     "react": "19.0.0",
     "react-native": "0.78.0",
-    "react-native-builder-bob": "^0.37.0",
+    "react-native-builder-bob": "^0.40.6",
     "react-native-nitro-modules": "0.25.1",
-    "release-it": "^18.1.2",
+    "release-it": "^19.0.1",
     "typescript": "5.0.4"
   },
   "peerDependencies": {
@@ -105,7 +104,6 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      "commonjs",
       "module",
       [
         "typescript",
