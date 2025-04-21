@@ -21,6 +21,30 @@ namespace margelo::nitro::telephoto::bridge::swift {
     };
   }
   
+  // pragma MARK: std::function<void(std::optional<double> /* factor */)>
+  Func_void_std__optional_double_ create_Func_void_std__optional_double_(void* _Nonnull swiftClosureWrapper) {
+    auto swiftClosure = Telephoto::Func_void_std__optional_double_::fromUnsafe(swiftClosureWrapper);
+    return [swiftClosure = std::move(swiftClosure)](std::optional<double> factor) mutable -> void {
+      swiftClosure.call(factor);
+    };
+  }
+  
+  // pragma MARK: std::function<void()>
+  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) {
+    auto swiftClosure = Telephoto::Func_void::fromUnsafe(swiftClosureWrapper);
+    return [swiftClosure = std::move(swiftClosure)]() mutable -> void {
+      swiftClosure.call();
+    };
+  }
+  
+  // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) {
+    auto swiftClosure = Telephoto::Func_void_std__exception_ptr::fromUnsafe(swiftClosureWrapper);
+    return [swiftClosure = std::move(swiftClosure)](const std::exception_ptr& error) mutable -> void {
+      swiftClosure.call(error);
+    };
+  }
+  
   // pragma MARK: std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>
   std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec> create_std__shared_ptr_margelo__nitro__telephoto__HybridTelephotoSpec_(void* _Nonnull swiftUnsafePointer) {
     Telephoto::HybridTelephotoSpec_cxx swiftPart = Telephoto::HybridTelephotoSpec_cxx::fromUnsafe(swiftUnsafePointer);

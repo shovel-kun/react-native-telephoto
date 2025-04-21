@@ -17,6 +17,7 @@
 
 #include "JHybridTelephotoSpec.hpp"
 #include "JFunc_void_Offset.hpp"
+#include "JFunc_void_std__optional_double_.hpp"
 #include "views/JHybridTelephotoStateUpdater.hpp"
 #include <NitroModules/JNISharedPtr.hpp>
 #include <NitroModules/DefaultConstructableObject.hpp>
@@ -32,6 +33,7 @@ int initialize(JavaVM* vm) {
     // Register native JNI methods
     margelo::nitro::telephoto::JHybridTelephotoSpec::registerNatives();
     margelo::nitro::telephoto::JFunc_void_Offset_cxx::registerNatives();
+    margelo::nitro::telephoto::JFunc_void_std__optional_double__cxx::registerNatives();
     margelo::nitro::telephoto::views::JHybridTelephotoStateUpdater::registerNatives();
 
     // Register Nitro Hybrid Objects

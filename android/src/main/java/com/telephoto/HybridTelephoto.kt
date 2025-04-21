@@ -5,11 +5,14 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.Keep
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.layout.ContentScale
 import com.facebook.proguard.annotations.DoNotStrip
+import com.facebook.react.uimanager.PixelUtil.dpToPx
 import com.facebook.react.uimanager.ThemedReactContext
+import com.margelo.nitro.core.Promise
 import com.margelo.nitro.telephoto.HybridTelephotoSpec
-import com.margelo.nitro.telephoto.Offset
+import com.margelo.nitro.telephoto.Offset as NitroOffset
 import com.margelo.nitro.telephoto.Alignment as NitroAlignment
 import com.margelo.nitro.telephoto.ContentScale as NitroContentScale
 
@@ -86,17 +89,43 @@ class HybridTelephoto(val context: ThemedReactContext): HybridTelephotoSpec() {
             value?.let { view.maxZoomFactor = it.toFloat() }
         }
 
-    override var onPress: ((Offset) -> Unit)? = null
+    override var onPress: ((NitroOffset) -> Unit)? = null
         set(value) {
             if (field == value) return
             field = value
             view.onClick = value
         }
 
-    override var onLongPress: ((Offset) -> Unit)? = null
+    override var onLongPress: ((NitroOffset) -> Unit)? = null
         set(value) {
             if (field == value) return
             field = value
             view.onLongClick = value
         }
+
+    override var onZoomFractionChanged: ((Double?) -> Unit)? = null
+        set(value) {
+            if (field == value) return
+            field = value
+            view.onZoomFractionChanged = value
+        }
+
+    // Methods
+    override fun zoomTo(zoomFactor: Double, centroid: NitroOffset): Promise<Unit> {
+        return Promise.async {
+            view.zoomTo(zoomFactor.toFloat(), Offset(centroid.x.dpToPx().toFloat(), centroid.y.dpToPx().toFloat()))
+        }
+    }
+
+    override fun zoomBy(zoomFactor: Double, centroid: NitroOffset): Promise<Unit> {
+        return Promise.async {
+            view.zoomBy(zoomFactor.toFloat(), Offset(centroid.x.dpToPx().toFloat(), centroid.y.dpToPx().toFloat()))
+        }
+    }
+
+    override fun resetZoom(): Promise<Unit> {
+        return Promise.async {
+            view.resetZoom()
+        }
+    }
 }

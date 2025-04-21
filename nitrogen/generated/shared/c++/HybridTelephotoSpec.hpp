@@ -26,6 +26,7 @@ namespace margelo::nitro::telephoto { struct Offset; }
 #include "ContentScale.hpp"
 #include <functional>
 #include "Offset.hpp"
+#include <NitroModules/Promise.hpp>
 
 namespace margelo::nitro::telephoto {
 
@@ -70,10 +71,14 @@ namespace margelo::nitro::telephoto {
       virtual void setOnPress(const std::optional<std::function<void(const Offset& /* offset */)>>& onPress) = 0;
       virtual std::optional<std::function<void(const Offset& /* offset */)>> getOnLongPress() = 0;
       virtual void setOnLongPress(const std::optional<std::function<void(const Offset& /* offset */)>>& onLongPress) = 0;
+      virtual std::optional<std::function<void(std::optional<double> /* factor */)>> getOnZoomFractionChanged() = 0;
+      virtual void setOnZoomFractionChanged(const std::optional<std::function<void(std::optional<double> /* factor */)>>& onZoomFractionChanged) = 0;
 
     public:
       // Methods
-      
+      virtual std::shared_ptr<Promise<void>> zoomTo(double factor, const Offset& centroid) = 0;
+      virtual std::shared_ptr<Promise<void>> zoomBy(double factor, const Offset& centroid) = 0;
+      virtual std::shared_ptr<Promise<void>> resetZoom() = 0;
 
     protected:
       // Hybrid Setup

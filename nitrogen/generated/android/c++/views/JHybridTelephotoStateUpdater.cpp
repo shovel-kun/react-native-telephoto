@@ -60,6 +60,10 @@ void JHybridTelephotoStateUpdater::updateViewProps(jni::alias_ref<jni::JClass> /
     view->setOnLongPress(props.onLongPress.value);
     // TODO: Set isDirty = false
   }
+  if (props.onZoomFractionChanged.isDirty) {
+    view->setOnZoomFractionChanged(props.onZoomFractionChanged.value);
+    // TODO: Set isDirty = false
+  }
 
   // Update hybridRef if it changed
   if (props.hybridRef.isDirty) {

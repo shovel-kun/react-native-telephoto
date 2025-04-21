@@ -101,9 +101,33 @@ abstract class HybridTelephotoSpec: HybridView() {
     set(value) {
       onLongPress = value?.let { it }
     }
+  
+  abstract var onZoomFractionChanged: ((factor: Double?) -> Unit)?
+  
+  private var onZoomFractionChanged_cxx: Func_void_std__optional_double_?
+    @Keep
+    @DoNotStrip
+    get() {
+      return onZoomFractionChanged?.let { Func_void_std__optional_double__java(it) }
+    }
+    @Keep
+    @DoNotStrip
+    set(value) {
+      onZoomFractionChanged = value?.let { it }
+    }
 
   // Methods
+  @DoNotStrip
+  @Keep
+  abstract fun zoomTo(factor: Double, centroid: Offset): Promise<Unit>
   
+  @DoNotStrip
+  @Keep
+  abstract fun zoomBy(factor: Double, centroid: Offset): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun resetZoom(): Promise<Unit>
 
   private external fun initHybrid(): HybridData
 

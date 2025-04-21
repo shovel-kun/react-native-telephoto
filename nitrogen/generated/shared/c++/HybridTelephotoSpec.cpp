@@ -30,6 +30,11 @@ namespace margelo::nitro::telephoto {
       prototype.registerHybridSetter("onPress", &HybridTelephotoSpec::setOnPress);
       prototype.registerHybridGetter("onLongPress", &HybridTelephotoSpec::getOnLongPress);
       prototype.registerHybridSetter("onLongPress", &HybridTelephotoSpec::setOnLongPress);
+      prototype.registerHybridGetter("onZoomFractionChanged", &HybridTelephotoSpec::getOnZoomFractionChanged);
+      prototype.registerHybridSetter("onZoomFractionChanged", &HybridTelephotoSpec::setOnZoomFractionChanged);
+      prototype.registerHybridMethod("zoomTo", &HybridTelephotoSpec::zoomTo);
+      prototype.registerHybridMethod("zoomBy", &HybridTelephotoSpec::zoomBy);
+      prototype.registerHybridMethod("resetZoom", &HybridTelephotoSpec::resetZoom);
     });
   }
 

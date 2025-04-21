@@ -24,6 +24,9 @@ namespace margelo::nitro::telephoto { struct Offset; }
 #include "Offset.hpp"
 #include "JFunc_void_Offset.hpp"
 #include "JOffset.hpp"
+#include "JFunc_void_std__optional_double_.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/JPromise.hpp>
 
 namespace margelo::nitro::telephoto {
 
@@ -133,8 +136,70 @@ namespace margelo::nitro::telephoto {
     static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<JFunc_void_Offset::javaobject> /* onLongPress */)>("setOnLongPress_cxx");
     method(_javaPart, onLongPress.has_value() ? JFunc_void_Offset_cxx::fromCpp(onLongPress.value()) : nullptr);
   }
+  std::optional<std::function<void(std::optional<double> /* factor */)>> JHybridTelephotoSpec::getOnZoomFractionChanged() {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JFunc_void_std__optional_double_::javaobject>()>("getOnZoomFractionChanged_cxx");
+    auto __result = method(_javaPart);
+    return __result != nullptr ? std::make_optional([&]() -> std::function<void(std::optional<double> /* factor */)> {
+      if (__result->isInstanceOf(JFunc_void_std__optional_double__cxx::javaClassStatic())) [[likely]] {
+        auto downcast = jni::static_ref_cast<JFunc_void_std__optional_double__cxx::javaobject>(__result);
+        return downcast->cthis()->getFunction();
+      } else {
+        return [__result](std::optional<double> factor) -> void {
+          return __result->invoke(factor);
+        };
+      }
+    }()) : std::nullopt;
+  }
+  void JHybridTelephotoSpec::setOnZoomFractionChanged(const std::optional<std::function<void(std::optional<double> /* factor */)>>& onZoomFractionChanged) {
+    static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<JFunc_void_std__optional_double_::javaobject> /* onZoomFractionChanged */)>("setOnZoomFractionChanged_cxx");
+    method(_javaPart, onZoomFractionChanged.has_value() ? JFunc_void_std__optional_double__cxx::fromCpp(onZoomFractionChanged.value()) : nullptr);
+  }
 
   // Methods
-  
+  std::shared_ptr<Promise<void>> JHybridTelephotoSpec::zoomTo(double factor, const Offset& centroid) {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(double /* factor */, jni::alias_ref<JOffset> /* centroid */)>("zoomTo");
+    auto __result = method(_javaPart, factor, JOffset::fromCpp(centroid));
+    return [&]() {
+      auto __promise = Promise<void>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& /* unit */) {
+        __promise->resolve();
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
+  std::shared_ptr<Promise<void>> JHybridTelephotoSpec::zoomBy(double factor, const Offset& centroid) {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(double /* factor */, jni::alias_ref<JOffset> /* centroid */)>("zoomBy");
+    auto __result = method(_javaPart, factor, JOffset::fromCpp(centroid));
+    return [&]() {
+      auto __promise = Promise<void>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& /* unit */) {
+        __promise->resolve();
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
+  std::shared_ptr<Promise<void>> JHybridTelephotoSpec::resetZoom() {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("resetZoom");
+    auto __result = method(_javaPart);
+    return [&]() {
+      auto __promise = Promise<void>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& /* unit */) {
+        __promise->resolve();
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
 
 } // namespace margelo::nitro::telephoto

@@ -111,6 +111,11 @@ using namespace margelo::nitro::telephoto::views;
     swiftPart.setOnLongPress(newViewProps.onLongPress.value);
     newViewProps.onLongPress.isDirty = false;
   }
+  // onZoomFractionChanged: optional
+  if (newViewProps.onZoomFractionChanged.isDirty) {
+    swiftPart.setOnZoomFractionChanged(newViewProps.onZoomFractionChanged.value);
+    newViewProps.onZoomFractionChanged.isDirty = false;
+  }
 
   swiftPart.afterUpdate();
 

@@ -19,9 +19,12 @@ public protocol HybridTelephotoSpec_protocol: HybridObject, HybridView {
   var maxZoomFactor: Double? { get set }
   var onPress: ((_ offset: Offset) -> Void)? { get set }
   var onLongPress: ((_ offset: Offset) -> Void)? { get set }
+  var onZoomFractionChanged: ((_ factor: Double?) -> Void)? { get set }
 
   // Methods
-  
+  func zoomTo(factor: Double, centroid: Offset) throws -> Promise<Void>
+  func zoomBy(factor: Double, centroid: Offset) throws -> Promise<Void>
+  func resetZoom() throws -> Promise<Void>
 }
 
 /// See ``HybridTelephotoSpec``

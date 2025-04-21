@@ -105,6 +105,16 @@ namespace margelo::nitro::telephoto::views {
         throw std::runtime_error(std::string("Telephoto.onLongPress: ") + exc.what());
       }
     }()),
+    onZoomFractionChanged([&]() -> CachedProp<std::optional<std::function<void(std::optional<double> /* factor */)>>> {
+      try {
+        const react::RawValue* rawValue = rawProps.at("onZoomFractionChanged", nullptr, nullptr);
+        if (rawValue == nullptr) return sourceProps.onZoomFractionChanged;
+        const auto& [runtime, value] = (std::pair<jsi::Runtime*, jsi::Value>)*rawValue;
+        return CachedProp<std::optional<std::function<void(std::optional<double> /* factor */)>>>::fromRawValue(*runtime, value.asObject(*runtime).getProperty(*runtime, "f"), sourceProps.onZoomFractionChanged);
+      } catch (const std::exception& exc) {
+        throw std::runtime_error(std::string("Telephoto.onZoomFractionChanged: ") + exc.what());
+      }
+    }()),
     hybridRef([&]() -> CachedProp<std::optional<std::function<void(const std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>& /* ref */)>>> {
       try {
         const react::RawValue* rawValue = rawProps.at("hybridRef", nullptr, nullptr);
@@ -126,6 +136,7 @@ namespace margelo::nitro::telephoto::views {
     maxZoomFactor(other.maxZoomFactor),
     onPress(other.onPress),
     onLongPress(other.onLongPress),
+    onZoomFractionChanged(other.onZoomFractionChanged),
     hybridRef(other.hybridRef) { }
 
   bool HybridTelephotoProps::filterObjectKeys(const std::string& propName) {
@@ -138,6 +149,7 @@ namespace margelo::nitro::telephoto::views {
       case hashString("maxZoomFactor"): return true;
       case hashString("onPress"): return true;
       case hashString("onLongPress"): return true;
+      case hashString("onZoomFractionChanged"): return true;
       case hashString("hybridRef"): return true;
       default: return false;
     }

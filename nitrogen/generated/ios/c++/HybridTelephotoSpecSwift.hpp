@@ -25,6 +25,7 @@ namespace margelo::nitro::telephoto { struct Offset; }
 #include "ContentScale.hpp"
 #include <functional>
 #include "Offset.hpp"
+#include <NitroModules/Promise.hpp>
 
 #include "Telephoto-Swift-Cxx-Umbrella.hpp"
 
@@ -117,10 +118,40 @@ namespace margelo::nitro::telephoto {
     inline void setOnLongPress(const std::optional<std::function<void(const Offset& /* offset */)>>& onLongPress) noexcept override {
       _swiftPart.setOnLongPress(onLongPress);
     }
+    inline std::optional<std::function<void(std::optional<double> /* factor */)>> getOnZoomFractionChanged() noexcept override {
+      auto __result = _swiftPart.getOnZoomFractionChanged();
+      return __result;
+    }
+    inline void setOnZoomFractionChanged(const std::optional<std::function<void(std::optional<double> /* factor */)>>& onZoomFractionChanged) noexcept override {
+      _swiftPart.setOnZoomFractionChanged(onZoomFractionChanged);
+    }
 
   public:
     // Methods
-    
+    inline std::shared_ptr<Promise<void>> zoomTo(double factor, const Offset& centroid) override {
+      auto __result = _swiftPart.zoomTo(std::forward<decltype(factor)>(factor), centroid);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> zoomBy(double factor, const Offset& centroid) override {
+      auto __result = _swiftPart.zoomBy(std::forward<decltype(factor)>(factor), centroid);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> resetZoom() override {
+      auto __result = _swiftPart.resetZoom();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
 
   private:
     Telephoto::HybridTelephotoSpec_cxx _swiftPart;

@@ -74,9 +74,22 @@ export interface TelephotoProps extends HybridViewProps {
    * The onLongPress handler of the image
    */
   onLongPress?: (offset: Offset) => void
+  /**
+   * The onZoomFrom handler of the image
+   *
+   * @return A value between 0 and 1, where 0 indicates that the content is fully zoomed out,
+   * 1 indicates that the content is fully zoomed in, and `null` indicates that an initial zoom
+   * value hasn't been calculated yet and the content is hidden.
+   * A `null` value could be safely treated the same as 0.
+   */
+  onZoomFractionChanged?: (factor: number | null) => void
 }
 
-export interface TelephotoMethods extends HybridViewMethods {}
+export interface TelephotoMethods extends HybridViewMethods {
+  zoomTo(factor: number, centroid: Offset): Promise<void>
+  zoomBy(factor: number, centroid: Offset): Promise<void>
+  resetZoom(): Promise<void>
+}
 
 export type Telephoto = HybridView<
   TelephotoProps,

@@ -63,10 +63,14 @@ namespace margelo::nitro::telephoto {
     void setOnPress(const std::optional<std::function<void(const Offset& /* offset */)>>& onPress) override;
     std::optional<std::function<void(const Offset& /* offset */)>> getOnLongPress() override;
     void setOnLongPress(const std::optional<std::function<void(const Offset& /* offset */)>>& onLongPress) override;
+    std::optional<std::function<void(std::optional<double> /* factor */)>> getOnZoomFractionChanged() override;
+    void setOnZoomFractionChanged(const std::optional<std::function<void(std::optional<double> /* factor */)>>& onZoomFractionChanged) override;
 
   public:
     // Methods
-    
+    std::shared_ptr<Promise<void>> zoomTo(double factor, const Offset& centroid) override;
+    std::shared_ptr<Promise<void>> zoomBy(double factor, const Offset& centroid) override;
+    std::shared_ptr<Promise<void>> resetZoom() override;
 
   private:
     friend HybridBase;

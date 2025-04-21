@@ -26,6 +26,10 @@ namespace Telephoto { class HybridTelephotoSpec_cxx; }
 #include "ContentScale.hpp"
 #include "HybridTelephotoSpec.hpp"
 #include "Offset.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/PromiseHolder.hpp>
+#include <NitroModules/Result.hpp>
+#include <exception>
 #include <functional>
 #include <memory>
 #include <optional>
@@ -104,6 +108,93 @@ namespace margelo::nitro::telephoto::bridge::swift {
     return std::optional<std::function<void(const Offset& /* offset */)>>(value);
   }
   
+  // pragma MARK: std::function<void(std::optional<double> /* factor */)>
+  /**
+   * Specialized version of `std::function<void(std::optional<double>)>`.
+   */
+  using Func_void_std__optional_double_ = std::function<void(std::optional<double> /* factor */)>;
+  /**
+   * Wrapper class for a `std::function<void(std::optional<double> / * factor * /)>`, this can be used from Swift.
+   */
+  class Func_void_std__optional_double__Wrapper final {
+  public:
+    explicit Func_void_std__optional_double__Wrapper(std::function<void(std::optional<double> /* factor */)>&& func): _function(std::make_shared<std::function<void(std::optional<double> /* factor */)>>(std::move(func))) {}
+    inline void call(std::optional<double> factor) const {
+      _function->operator()(factor);
+    }
+  private:
+    std::shared_ptr<std::function<void(std::optional<double> /* factor */)>> _function;
+  };
+  Func_void_std__optional_double_ create_Func_void_std__optional_double_(void* _Nonnull swiftClosureWrapper);
+  inline Func_void_std__optional_double__Wrapper wrap_Func_void_std__optional_double_(Func_void_std__optional_double_ value) {
+    return Func_void_std__optional_double__Wrapper(std::move(value));
+  }
+  
+  // pragma MARK: std::optional<std::function<void(std::optional<double> /* factor */)>>
+  /**
+   * Specialized version of `std::optional<std::function<void(std::optional<double> / * factor * /)>>`.
+   */
+  using std__optional_std__function_void_std__optional_double_____factor______ = std::optional<std::function<void(std::optional<double> /* factor */)>>;
+  inline std::optional<std::function<void(std::optional<double> /* factor */)>> create_std__optional_std__function_void_std__optional_double_____factor______(const std::function<void(std::optional<double> /* factor */)>& value) {
+    return std::optional<std::function<void(std::optional<double> /* factor */)>>(value);
+  }
+  
+  // pragma MARK: std::shared_ptr<Promise<void>>
+  /**
+   * Specialized version of `std::shared_ptr<Promise<void>>`.
+   */
+  using std__shared_ptr_Promise_void__ = std::shared_ptr<Promise<void>>;
+  inline std::shared_ptr<Promise<void>> create_std__shared_ptr_Promise_void__() {
+    return Promise<void>::create();
+  }
+  inline PromiseHolder<void> wrap_std__shared_ptr_Promise_void__(std::shared_ptr<Promise<void>> promise) {
+    return PromiseHolder<void>(std::move(promise));
+  }
+  
+  // pragma MARK: std::function<void()>
+  /**
+   * Specialized version of `std::function<void()>`.
+   */
+  using Func_void = std::function<void()>;
+  /**
+   * Wrapper class for a `std::function<void()>`, this can be used from Swift.
+   */
+  class Func_void_Wrapper final {
+  public:
+    explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_shared<std::function<void()>>(std::move(func))) {}
+    inline void call() const {
+      _function->operator()();
+    }
+  private:
+    std::shared_ptr<std::function<void()>> _function;
+  };
+  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper);
+  inline Func_void_Wrapper wrap_Func_void(Func_void value) {
+    return Func_void_Wrapper(std::move(value));
+  }
+  
+  // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
+  /**
+   * Specialized version of `std::function<void(const std::exception_ptr&)>`.
+   */
+  using Func_void_std__exception_ptr = std::function<void(const std::exception_ptr& /* error */)>;
+  /**
+   * Wrapper class for a `std::function<void(const std::exception_ptr& / * error * /)>`, this can be used from Swift.
+   */
+  class Func_void_std__exception_ptr_Wrapper final {
+  public:
+    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_shared<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
+    inline void call(std::exception_ptr error) const {
+      _function->operator()(error);
+    }
+  private:
+    std::shared_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
+  };
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper);
+  inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) {
+    return Func_void_std__exception_ptr_Wrapper(std::move(value));
+  }
+  
   // pragma MARK: std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>
   /**
    * Specialized version of `std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>`.
@@ -115,5 +206,14 @@ namespace margelo::nitro::telephoto::bridge::swift {
   // pragma MARK: std::weak_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>
   using std__weak_ptr_margelo__nitro__telephoto__HybridTelephotoSpec_ = std::weak_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>;
   inline std__weak_ptr_margelo__nitro__telephoto__HybridTelephotoSpec_ weakify_std__shared_ptr_margelo__nitro__telephoto__HybridTelephotoSpec_(const std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>& strong) { return strong; }
+  
+  // pragma MARK: Result<std::shared_ptr<Promise<void>>>
+  using Result_std__shared_ptr_Promise_void___ = Result<std::shared_ptr<Promise<void>>>;
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::shared_ptr<Promise<void>>& value) {
+    return Result<std::shared_ptr<Promise<void>>>::withValue(value);
+  }
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) {
+    return Result<std::shared_ptr<Promise<void>>>::withError(error);
+  }
 
 } // namespace margelo::nitro::telephoto::bridge::swift

@@ -33,6 +33,9 @@
 #include "Offset.hpp"
 #include <optional>
 #include <functional>
+#include <optional>
+#include <optional>
+#include <functional>
 #include <memory>
 #include "HybridTelephotoSpec.hpp"
 
@@ -65,6 +68,7 @@ namespace margelo::nitro::telephoto::views {
     CachedProp<std::optional<double>> maxZoomFactor;
     CachedProp<std::optional<std::function<void(const Offset& /* offset */)>>> onPress;
     CachedProp<std::optional<std::function<void(const Offset& /* offset */)>>> onLongPress;
+    CachedProp<std::optional<std::function<void(std::optional<double> /* factor */)>>> onZoomFractionChanged;
     CachedProp<std::optional<std::function<void(const std::shared_ptr<margelo::nitro::telephoto::HybridTelephotoSpec>& /* ref */)>>> hybridRef;
 
   private:

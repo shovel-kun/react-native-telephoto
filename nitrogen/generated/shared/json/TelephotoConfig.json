@@ -12,6 +12,7 @@
     "maxZoomFactor": true,
     "onPress": true,
     "onLongPress": true,
+    "onZoomFractionChanged": true,
     "hybridRef": true
   }
 }

@@ -22,6 +22,9 @@ namespace margelo::nitro::telephoto { struct Offset; }
 #include "ContentScale.hpp"
 #include "HybridTelephotoSpec.hpp"
 #include "Offset.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/Result.hpp>
+#include <exception>
 #include <functional>
 #include <memory>
 #include <optional>

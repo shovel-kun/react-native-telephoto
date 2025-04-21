@@ -260,8 +260,102 @@ public class HybridTelephotoSpec_cxx {
       }()
     }
   }
+  
+  public final var onZoomFractionChanged: bridge.std__optional_std__function_void_std__optional_double_____factor______ {
+    @inline(__always)
+    get {
+      return { () -> bridge.std__optional_std__function_void_std__optional_double_____factor______ in
+        if let __unwrappedValue = self.__implementation.onZoomFractionChanged {
+          return bridge.create_std__optional_std__function_void_std__optional_double_____factor______({ () -> bridge.Func_void_std__optional_double_ in
+            let __closureWrapper = Func_void_std__optional_double_(__unwrappedValue)
+            return bridge.create_Func_void_std__optional_double_(__closureWrapper.toUnsafe())
+          }())
+        } else {
+          return .init()
+        }
+      }()
+    }
+    @inline(__always)
+    set {
+      self.__implementation.onZoomFractionChanged = { () -> ((_ factor: Double?) -> Void)? in
+        if let __unwrapped = newValue.value {
+          return { () -> (Double?) -> Void in
+            let __wrappedFunction = bridge.wrap_Func_void_std__optional_double_(__unwrapped)
+            return { (__factor: Double?) -> Void in
+              __wrappedFunction.call({ () -> bridge.std__optional_double_ in
+                if let __unwrappedValue = __factor {
+                  return bridge.create_std__optional_double_(__unwrappedValue)
+                } else {
+                  return .init()
+                }
+              }())
+            }
+          }()
+        } else {
+          return nil
+        }
+      }()
+    }
+  }
 
   // Methods
+  @inline(__always)
+  public final func zoomTo(factor: Double, centroid: Offset) -> bridge.Result_std__shared_ptr_Promise_void___ {
+    do {
+      let __result = try self.__implementation.zoomTo(factor: factor, centroid: centroid)
+      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_void__ in
+        let __promise = bridge.create_std__shared_ptr_Promise_void__()
+        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_void__(__promise)
+        __result
+          .then({ __result in __promiseHolder.resolve() })
+          .catch({ __error in __promiseHolder.reject(__error.toCpp()) })
+        return __promise
+      }()
+      return bridge.create_Result_std__shared_ptr_Promise_void___(__resultCpp)
+    } catch (let __error) {
+      let __exceptionPtr = __error.toCpp()
+      return bridge.create_Result_std__shared_ptr_Promise_void___(__exceptionPtr)
+    }
+  }
+  
+  @inline(__always)
+  public final func zoomBy(factor: Double, centroid: Offset) -> bridge.Result_std__shared_ptr_Promise_void___ {
+    do {
+      let __result = try self.__implementation.zoomBy(factor: factor, centroid: centroid)
+      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_void__ in
+        let __promise = bridge.create_std__shared_ptr_Promise_void__()
+        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_void__(__promise)
+        __result
+          .then({ __result in __promiseHolder.resolve() })
+          .catch({ __error in __promiseHolder.reject(__error.toCpp()) })
+        return __promise
+      }()
+      return bridge.create_Result_std__shared_ptr_Promise_void___(__resultCpp)
+    } catch (let __error) {
+      let __exceptionPtr = __error.toCpp()
+      return bridge.create_Result_std__shared_ptr_Promise_void___(__exceptionPtr)
+    }
+  }
+  
+  @inline(__always)
+  public final func resetZoom() -> bridge.Result_std__shared_ptr_Promise_void___ {
+    do {
+      let __result = try self.__implementation.resetZoom()
+      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_void__ in
+        let __promise = bridge.create_std__shared_ptr_Promise_void__()
+        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_void__(__promise)
+        __result
+          .then({ __result in __promiseHolder.resolve() })
+          .catch({ __error in __promiseHolder.reject(__error.toCpp()) })
+        return __promise
+      }()
+      return bridge.create_Result_std__shared_ptr_Promise_void___(__resultCpp)
+    } catch (let __error) {
+      let __exceptionPtr = __error.toCpp()
+      return bridge.create_Result_std__shared_ptr_Promise_void___(__exceptionPtr)
+    }
+  }
+  
   public final func getView() -> UnsafeMutableRawPointer {
     return Unmanaged.passRetained(__implementation.view).toOpaque()
   }
