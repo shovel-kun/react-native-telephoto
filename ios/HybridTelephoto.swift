@@ -26,14 +26,14 @@ class HybridTelephoto : HybridTelephotoSpec {
     var onZoomFractionChanged: ((Double?) -> Void)?
     
     func zoomTo(factor: Double, centroid: Offset) throws -> Promise<Void> {
-        <#code#>
+        return Promise.async {}
     }
     
     func zoomBy(factor: Double, centroid: Offset) throws -> Promise<Void> {
-        <#code#>
+        return Promise.async {}
     }
     
     func resetZoom() throws -> Promise<Void> {
-        <#code#>
+        return Promise.async {}
     }
 }
