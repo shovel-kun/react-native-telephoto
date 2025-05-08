@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.4](https://github.com/shovel-kun/react-native-telephoto/compare/v0.2.3...v0.2.4) (2025-05-08)
+
+### 🐛 Bug Fixes
+
+* **ios:** make it run 2 ([a8d94b4](https://github.com/shovel-kun/react-native-telephoto/commit/a8d94b4e2267f94457f1eb71668c80ed7932d8a5))
+
 ## [0.2.3](https://github.com/shovel-kun/react-native-telephoto/compare/v0.2.2...v0.2.3) (2025-05-08)
 
 ### 🐛 Bug Fixes
