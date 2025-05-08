@@ -1,14 +1,39 @@
 import Foundation
 import UIKit
+import NitroModules
 
 class HybridTelephoto : HybridTelephotoSpec {
-  // UIView
-  var view: UIView = UIView()
+    
+    // UIView
+    var view: UIView = UIView()
 
-  // Props
-  var isRed: Bool = false {
-    didSet {
-      view.backgroundColor = isRed ? .red : .black
+    var source: String = ""
+    
+    var contentDescription: String?
+    
+    var alignment: Alignment?
+    
+    var contentScale: ContentScale?
+    
+    var minZoomFactor: Double?
+    
+    var maxZoomFactor: Double?
+    
+    var onPress: ((Offset) -> Void)?
+    
+    var onLongPress: ((Offset) -> Void)?
+    
+    var onZoomFractionChanged: ((Double?) -> Void)?
+    
+    func zoomTo(factor: Double, centroid: Offset) throws -> Promise<Void> {
+        <#code#>
     }
-  }
+    
+    func zoomBy(factor: Double, centroid: Offset) throws -> Promise<Void> {
+        <#code#>
+    }
+    
+    func resetZoom() throws -> Promise<Void> {
+        <#code#>
+    }
 }
