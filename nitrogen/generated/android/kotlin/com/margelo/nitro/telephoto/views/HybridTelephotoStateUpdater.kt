@@ -7,7 +7,7 @@
 
 package com.margelo.nitro.telephoto.views
 
-import com.facebook.react.fabric.StateWrapperImpl
+import com.facebook.react.uimanager.StateWrapper
 import com.margelo.nitro.telephoto.*
 
 internal class HybridTelephotoStateUpdater {
@@ -18,6 +18,6 @@ internal class HybridTelephotoStateUpdater {
      */
     @Suppress("KotlinJniMissingFunction")
     @JvmStatic
-    external fun updateViewProps(view: HybridTelephotoSpec, state: StateWrapperImpl)
+    external fun updateViewProps(view: HybridTelephotoSpec, state: StateWrapper)
   }
 }

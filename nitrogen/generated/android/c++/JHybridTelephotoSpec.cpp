@@ -108,8 +108,9 @@ namespace margelo::nitro::telephoto {
         auto downcast = jni::static_ref_cast<JFunc_void_Offset_cxx::javaobject>(__result);
         return downcast->cthis()->getFunction();
       } else {
-        return [__result](Offset offset) -> void {
-          return __result->invoke(offset);
+        auto __resultRef = jni::make_global(__result);
+        return [__resultRef](Offset offset) -> void {
+          return __resultRef->invoke(offset);
         };
       }
     }()) : std::nullopt;
@@ -126,8 +127,9 @@ namespace margelo::nitro::telephoto {
         auto downcast = jni::static_ref_cast<JFunc_void_Offset_cxx::javaobject>(__result);
         return downcast->cthis()->getFunction();
       } else {
-        return [__result](Offset offset) -> void {
-          return __result->invoke(offset);
+        auto __resultRef = jni::make_global(__result);
+        return [__resultRef](Offset offset) -> void {
+          return __resultRef->invoke(offset);
         };
       }
     }()) : std::nullopt;
@@ -144,8 +146,9 @@ namespace margelo::nitro::telephoto {
         auto downcast = jni::static_ref_cast<JFunc_void_std__optional_double__cxx::javaobject>(__result);
         return downcast->cthis()->getFunction();
       } else {
-        return [__result](std::optional<double> factor) -> void {
-          return __result->invoke(factor);
+        auto __resultRef = jni::make_global(__result);
+        return [__resultRef](std::optional<double> factor) -> void {
+          return __resultRef->invoke(factor);
         };
       }
     }()) : std::nullopt;
