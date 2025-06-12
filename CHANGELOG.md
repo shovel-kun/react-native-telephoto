@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.5](https://github.com/shovel-kun/react-native-telephoto/compare/v0.2.4...v0.2.5) (2025-06-12)
+
+### 🐛 Bug Fixes
+
+* remove StateWrapperImpl ([e8acf35](https://github.com/shovel-kun/react-native-telephoto/commit/e8acf35b50c8156328bbae14a62c899992ad8dd8))
+
 ## [0.2.4](https://github.com/shovel-kun/react-native-telephoto/compare/v0.2.3...v0.2.4) (2025-05-08)
 
 ### 🐛 Bug Fixes
