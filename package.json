@@ -58,7 +58,7 @@
     "globals": "^16.2.0",
     "nitro-codegen": "^0.26.2",
     "react": "19.0.0",
-    "react-native": "0.78.0",
+    "react-native": "0.80.1",
     "react-native-builder-bob": "^0.40.11",
     "react-native-nitro-modules": "^0.26.2",
     "release-it": "^19.0.3",
