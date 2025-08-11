@@ -17,7 +17,7 @@
         "react": "19.0.0",
         "react-native": "0.78.0",
         "react-native-builder-bob": "^0.40.11",
-        "react-native-nitro-modules": "^0.26.2",
+        "react-native-nitro-modules": "^0.27.5",
         "release-it": "^19.0.3",
         "typescript": "5.0.4",
         "typescript-eslint": "^8.34.0",
@@ -35,7 +35,7 @@
         "react": "19.0.0",
         "react-native": "0.78.0",
         "react-native-gesture-handler": "^2.25.0",
-        "react-native-nitro-modules": "^0.26.2",
+        "react-native-nitro-modules": "^0.27.5",
       },
       "devDependencies": {
         "@babel/core": "^7.25.2",
@@ -2201,7 +2201,7 @@
 
     "react-native-monorepo-config/escape-string-regexp": ["escape-string-regexp@5.0.0", "", {}, "sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw=="],
 
-    "react-native-telephoto-example/react-native-nitro-modules": ["react-native-nitro-modules@0.26.2", "", { "peerDependencies": { "react": "*", "react-native": "*" } }, "sha512-PvTUOryU/J1RDsPh1IvmAEDkYVVL32wCIYxkg6HsKgq+Dl+C8lth/MtW7cRZ+fJ0qW21NILbhBdhSXFzBx51fA=="],
+    "react-native-telephoto-example/react-native-nitro-modules": ["react-native-nitro-modules@0.27.5", "", { "peerDependencies": { "react": "*", "react-native": "*" } }, "sha512-7slvqIQ+mKdaLRWu2DFZFvUXSPNU5udzlHyMrLCwTp51TgS/i25SQ4nhV9U9iwwVXajL73bJnS7G5pUyqmyshg=="],
 
     "read-package-up/type-fest": ["type-fest@4.40.0", "", {}, "sha512-ABHZ2/tS2JkvH1PEjxFDTUWC8dB5OsIGZP4IFLhR293GqT5Y5qB1WwL2kMPYhQW9DVgVD8Hd7I8gjwPIf5GFkw=="],
 
